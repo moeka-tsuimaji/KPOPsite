@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ゆめかわ K-POPアイドル図鑑 💖✨</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 class="title">💖 K-POPアイドル図鑑 🌈✨</h1>
+    <p class="subtitle">生まれ年でサクッと検索！</p>
+  </header>
+
+  <section id="searchSection">
+    <input type="text" id="yearInput" placeholder="例: 1997">
+    <button id="searchBtn" class="glow-btn">検索 🔍</button>
+  </section>
+
+  <div id="loading">読み込み中…💖</div>
+
+  <div id="tabs" class="tab-wrapper">
+    <button class="tab active" data-tab="all">カード表示 ✨</button>
+    <button class="tab" data-tab="group">グループ別 🌟</button>
+    <button class="tab" data-tab="month">誕生月別 🎂</button>
+  </div>
+
+  <main id="result" class="slide"></main>
+
+  <!--<script src="idolData.js"></script>-->
+  <script src="main.js" defer></script>
+</body>
+</html>

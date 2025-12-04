@@ -1,0 +1,215 @@
+/* フォント・背景 */
+body {
+  font-family: 'Baloo 2', cursive;
+  padding: 1em;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff0f8, #ffe6f0, #fff4ff);
+  background-size: 400% 400%;
+  animation: bgMove 12s ease infinite;
+  color: #5c3a6d;
+  max-width: 900px;
+  margin: auto;
+
+  /* ベースサイズを少し大きめにして読みやすく */
+  font-size: 1.05em;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0 0; }
+}
+
+/* タイトル・サブタイトル */
+.title {
+  text-align: center;
+  font-size: 2.45em;
+  color: #ff66c4;
+  text-shadow: 0 0 20px rgba(255,102,196,0.6);
+  margin-bottom: 0.3em;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.25em;
+  color: #ff85e0;
+  margin-bottom: 1em;
+}
+
+/* 検索欄 */
+#searchSection { 
+  text-align: center; 
+  margin-bottom: 1.4em;
+}
+
+input {
+  padding: 0.55em 1em;
+  border-radius: 15px;
+  border: 2px solid #ffa6d9;
+  width: 165px;
+  font-size: 1.02em;
+}
+
+.glow-btn {
+  padding: 0.55em 1em;
+  border-radius: 15px;
+  background: #ff85e0;
+  border: none;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-left: 10px;
+  font-size: 1.02em;
+}
+
+/* shine effect */
+.glow-btn:hover { background: #ffb0f0; }
+.glow-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+  transform: skewX(-20deg);
+}
+.glow-btn.shine::after { animation: shine 0.8s; }
+@keyframes shine { 0%{left:-120%;}100%{left:150%;} }
+
+/* ローディング */
+#loading {
+  display: none;
+  text-align: center;
+  color: #ff66c4;
+  font-weight: bold;
+  margin-bottom: 1em;
+  animation: blink 0.8s infinite alternate;
+}
+@keyframes blink { from{opacity:1;}to{opacity:0.3;} }
+
+/* タブ */
+.tab-wrapper {
+  display: none;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1em;
+}
+
+.tab {
+  padding: 0.55em 1em;
+  border-radius: 25px;
+  border: 2px solid #ff85e0;
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  font-size: 1.05em;
+}
+
+.tab.active {
+  background: #ff85e0;
+  color: white;
+  transform: scale(1.06);
+}
+
+/* 結果領域 */
+#result.slide {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+#result.show { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+/* カード */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff0fb;
+  border-radius: 22px;
+  padding: 16px;
+  width: 27%;
+  min-width: 160px;
+  border: 3px solid #ffc0e8;
+  box-shadow: 0 5px 12px rgba(255,150,220,0.4);
+  text-align: center;
+  transition: 0.3s;
+
+  /* 全体を少し読みやすく */
+  font-size: 1.03em;
+  line-height: 1.45em;
+}
+
+/* メンバー名（ここ修正：余白 4px → 2px） */
+.card strong {
+  font-size: 1.25em;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* 誕生日 */
+.card small {
+  font-size: 0.92em;
+}
+
+/* カード装飾 */
+.card strong::before { content: "🎤 "; }
+.card small::before { content: "✨ "; }
+
+.card:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 8px 16px rgba(255,150,220,0.6);
+}
+
+/* グループ別 & 誕生月別 —— フォント強化（ここ修正） */
+.list-group h2,
+.list-month h2 {
+  margin-top: 1.0em;
+  padding-left: 8px;
+  border-left: 5px solid #ff99d9;
+  color: #ff66c4;
+  font-weight: 700;
+
+  /* 1.32em → 1.45em に拡大 */
+  font-size: 1.45em;
+
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.list-group p,
+.list-month p {
+  padding-left: 1.3em;
+  line-height: 1.55em;
+  margin: 6px 0;
+
+  /* 1.12em → 1.10em（バランス調整） */
+  font-size: 1.10em;
+
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.list-group p::before { content: "🎵 "; }
+.list-month p::before { content: "🎂 "; }
+
+/* フェードスライド */
+.fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.fade-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}

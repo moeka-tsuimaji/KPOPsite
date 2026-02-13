@@ -180,8 +180,8 @@ input {
   color: #ff66c4;
   font-weight: 700;
 
-  /* 1.32em → 1.45em に拡大 */
-  font-size: 1.45em;
+  /* 見出しのサイズ */
+  font-size: 1.8em;
 
   opacity: 0;
   transform: translateY(20px);
@@ -193,8 +193,8 @@ input {
   line-height: 1.55em;
   margin: 6px 0;
 
-  /* 1.12em → 1.10em（バランス調整） */
-  font-size: 1.10em;
+  /* 名前のサイズ */
+  font-size: 1.5em;
 
   opacity: 0;
   transform: translateY(20px);
@@ -212,4 +212,41 @@ input {
 .fade-item.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* =========================
+   トップ空白を埋める紹介ブロック
+========================= */
+
+.hero {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 28px 22px;
+  border-radius: 25px;
+  text-align: center;
+  margin: 25px 0;
+
+  border: 2px solid #ffc0e8;
+  box-shadow: 0 6px 18px rgba(255, 150, 220, 0.35);
+
+  backdrop-filter: blur(6px);
+}
+
+/* 見出し */
+.hero h2 {
+  font-size: 1.6em;
+  color: #ff66c4;
+  margin-bottom: 10px;
+}
+
+/* 説明文 */
+.hero p {
+  font-size: 1.1em;
+  margin: 6px 0;
+  line-height: 1.6em;
+}
+
+/* 小さめ補足 */
+.hero .mini {
+  font-size: 1em;
+  color: #ff85e0;
 }
